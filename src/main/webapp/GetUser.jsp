@@ -41,19 +41,18 @@
 		};
 		$.ajax({
 			url : urlStr,
-			dataType:'json',
-			contentType:'application/json;charset=utf-8',
-			data : JSON.stringify(user),
-			type : 'POST',
-			success : function(response) {
-				data = eval("(" + response + ")");
-				alert(data.userName);
-				$("#a").html(data.userName);
-			},
-			error : function(msg) {
-				alert("错误");
+			type : "POST",
+			data : JSON.stringify(user), //转JSON字符串  
+			dataType : 'json',
+			contentType : 'application/json;charset=UTF-8', //contentType很重要     
+			success : function(result) {
+				console.log(result);
+				//alert(result);
+				//data = eval("(" + result + ")");
+				//alert(data);
+				$("#a").html(result.userName);
 			}
-		}); // end ajax
+		});
 	});
 </script>
 </html>

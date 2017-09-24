@@ -30,11 +30,9 @@ public class UserController {
 
 	@RequestMapping(value = "/GetUser", method = RequestMethod.POST)
 	public @ResponseBody
-	void GetUser(@RequestBody User user) {// @RequestBody User user
-		System.out.println(user.getUserName());
-		user = new User();
+	User GetUser(@RequestBody User user) {
 		user.setUserName("Wei");
-		//return user;
+		return user;
 	}
 
 }
