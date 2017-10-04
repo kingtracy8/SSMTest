@@ -34,7 +34,7 @@
 	jQuery(function($){
 	var urlStr = "<%=request.getContextPath()%>/user/GetUser";
 		var user = {
-			"id" : 6,
+			"id" : 2,
 			"userName" : "小红",
 			"password" : "123",
 			"age" : 12
@@ -50,7 +50,7 @@
 				//alert(result);
 				//data = eval("(" + result + ")");
 				//alert(data);
-				alert("请求成功！spring mvc 返回数据是:"+result);
+			//	alert("请求成功！spring mvc 返回数据是:"+result);
 				$("#a").html(result.userName);
 			}
 		});

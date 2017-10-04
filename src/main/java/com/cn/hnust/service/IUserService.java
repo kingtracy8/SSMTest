@@ -6,4 +6,6 @@ import com.cn.hnust.domain.User;
 
 public interface IUserService {
 	public User getUserById(int userId);
+	public int updateByPrimaryKey(User record);
+	public int deleteByPrimaryKey(Integer id);
 }

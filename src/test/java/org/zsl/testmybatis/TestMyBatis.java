@@ -16,22 +16,13 @@ import com.cn.hnust.service.IUserService;
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})  
   
 public class TestMyBatis {  
-    private static Logger logger = Logger.getLogger(TestMyBatis.class);  
-//  private ApplicationContext ac = null;  
+    private static Logger logger = Logger.getLogger(TestMyBatis.class);
     @Resource  
-    private IUserService userService = null;  
-  
-//  @Before  
-//  public void before() {  
-//      ac = new ClassPathXmlApplicationContext("applicationContext.xml");  
-//      userService = (IUserService) ac.getBean("userService");  
-//  }  
+    private IUserService userService = null;
   
     @Test  
     public void test1() {  
-        User user = userService.getUserById(1);  
-        // System.out.println(user.getUserName());  
-        // logger.info("值："+user.getUserName());  
+        User user = userService.getUserById(1);
         logger.info(JSON.toJSONString(user));  
     }  
 }  

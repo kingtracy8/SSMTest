@@ -17,22 +17,24 @@ import com.cn.hnust.service.IUserService;
 @RequestMapping("/user")
 public class UserController {
 
-	@Autowired
-	private IUserService userService;
+    @Autowired
+    private IUserService userService;
 
-	@RequestMapping("/showUser")
-	public String toIndex(HttpServletRequest request, Model model) {
-		// int userId = Integer.parseInt(request.getParameter("id"));
-		// User user = this.userService.getUserById(userId);
-		// model.addAttribute("user", user);
-		return "showUser";
-	}
+    @RequestMapping("/showUser")
+    public String toIndex(HttpServletRequest request, Model model) {
+        // int userId = Integer.parseInt(request.getParameter("id"));
+        // User user = this.userService.getUserById(userId);
+        // model.addAttribute("user", user);
+        return "showUser";
+    }
 
-	@RequestMapping(value = "/GetUser", method = RequestMethod.POST)
-	public @ResponseBody
-	User GetUser(@RequestBody User user) {
-		user.setUserName("Wei");
-		return user;
-	}
+    @RequestMapping(value = "/GetUser", method = RequestMethod.POST)
+    public @ResponseBody
+    User GetUser(@RequestBody User user) {
+        //	user = userService.getUserById(2);
+//        userService.updateByPrimaryKey(user);
+        userService.deleteByPrimaryKey(user.getId());
+        return user;
+    }
 
 }
