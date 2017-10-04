@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 import com.cn.hnust.IDao.UserMapper;
 import com.cn.hnust.domain.User;
 import com.cn.hnust.service.IUserService;
+
+import java.util.List;
+
 @Service("userService")
 public class UserServiceImpl implements IUserService {
 
@@ -26,6 +29,10 @@ public class UserServiceImpl implements IUserService {
     public int deleteByPrimaryKey(Integer id) {
         return userMapper.deleteByPrimaryKey(id);
     }
+
+	public List<User> selectAll() {
+		return userMapper.selectAll();
+	}
 
 
 }

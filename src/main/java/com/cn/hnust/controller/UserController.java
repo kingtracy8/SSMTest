@@ -1,6 +1,7 @@
 package com.cn.hnust.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cn.hnust.domain.User;
 import com.cn.hnust.service.IUserService;
+
+import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -35,6 +39,18 @@ public class UserController {
 //        userService.updateByPrimaryKey(user);
         userService.deleteByPrimaryKey(user.getId());
         return user;
+    }
+
+    @RequestMapping("/test")
+    public void test(HttpServletRequest request, HttpServletResponse response) {
+        List<User> userList = userService.selectAll();
+        for (int i = 0; i < userList.size(); i++) {
+            try {
+                response.getWriter().println(userList.get(i).getUserName());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }
