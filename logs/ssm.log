@@ -338,3 +338,8 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 [INFO] [2017-10-03 10\:06\:50][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
 [INFO] [2017-10-03 10\:06\:51][org.zsl.testmybatis.TestMyBatis]{"age":22,"id":2,"password":"123456","userName":"Geroge"}
 [INFO] [2017-10-03 10\:06\:51][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@13c78c0b: startup date [Tue Oct 03 10:06:49 CST 2017]; root of context hierarchy
+[INFO] [2017-10-05 18\:27\:08][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2017-10-05 18\:27\:08][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@337d0578: startup date [Thu Oct 05 18:27:08 CST 2017]; root of context hierarchy
+[INFO] [2017-10-05 18\:27\:08][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-10-05 18\:27\:08][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-10-05 18\:27\:09][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@337d0578: startup date [Thu Oct 05 18:27:08 CST 2017]; root of context hierarchy

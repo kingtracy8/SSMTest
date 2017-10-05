@@ -9,14 +9,34 @@
 
     <script>
 
-       function login() {
-
+        function login() {
             var userName = document.getElementById("userName");
-            alert(userName.value);
+            var userPassword = document.getElementById("userPassword");
+            //alert($("#userName"));
+            var user = {
+                "id": 0,
+                "userName": "tracy",
+                "password": "111",
+                "age": 0
+            };
+            $.ajax({
+                url: "http://localhost:8086/user/checkLogin",
+                type: "POST",
+                data: JSON.stringify(user), //转JSON字符串
+                dataType: 'json',
+                contentType: 'application/json;charset=UTF-8', //contentType很重要
+                success: function (result) {
+                    console.log(result);
+                    if (result == 1) {
+                        window.location.href = "/html/success.html";
+                    } else {
+                        window.location.href = "/html/error.html";
+                    }
+                    alert(result);
+                }
+
+            });
         }
-
-
-
     </script>
 
 </head>
@@ -34,7 +54,7 @@
             <li class="l_tit">邮箱/用户名/手机号</li>
             <li class="mb_10"><input type="text" id="userName" class="login_input user_icon"></li>
             <li class="l_tit">密码</li>
-            <li class="mb_10"><input type="text" class="login_input user_icon"></li>
+            <li class="mb_10"><input type="Password" class="login_input user_icon" id="userPassword"></li>
             <li class="autoLogin"><input type="checkbox" id="a1" class="checked"><label for="a1">自动登陆</label></li>
             <li><input type="button" value="" class="login_btn" onclick="login()"></li>
         </ul>

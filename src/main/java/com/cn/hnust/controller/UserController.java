@@ -41,16 +41,59 @@ public class UserController {
         return user;
     }
 
-    @RequestMapping("/test")
-    public void test(HttpServletRequest request, HttpServletResponse response) {
+    /**
+     * 检查用户名和密码
+     */
+
+
+    @RequestMapping(value = "/checkLogin", method = RequestMethod.POST)
+    public @ResponseBody
+    int
+    test(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {
+        int flag = 0;
         List<User> userList = userService.selectAll();
+
         for (int i = 0; i < userList.size(); i++) {
+
+            String userName = userList.get(i).getUserName();
+            String userPassword = userList.get(i).getPassword();
+
+
+            if (user.getUserName().equals(userName) && user.getPassword().equals(userPassword)) {
+//                    response.sendRedirect("../../html/success.html");
+                flag = 1;
+                return flag;
+            } else {
+//                    response.sendRedirect("../../html/error.html");
+                flag = 0;
+            }
+
+
+
+        }
+        return flag;
+
+    }
+
+    @RequestMapping(value = "/LoginTest")
+    public String Logintest(HttpServletRequest request, HttpServletResponse response) {
+
+
+        if (1 == 1) {
             try {
-                response.getWriter().println(userList.get(i).getUserName());
+                response.sendRedirect("../../html/success.html");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                response.sendRedirect("../../html/error.html");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        return "sss";
     }
+
 
 }
