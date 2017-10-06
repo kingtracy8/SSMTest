@@ -15,8 +15,8 @@
             //alert($("#userName"));
             var user = {
                 "id": 0,
-                "userName": "tracy",
-                "password": "111",
+                "userName": userName.value,
+                "password": userPassword.value,
                 "age": 0
             };
             $.ajax({
@@ -32,7 +32,7 @@
                     } else {
                         window.location.href = "/html/error.html";
                     }
-                    alert(result);
+                  //  alert(result);
                 }
 
             });
