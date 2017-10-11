@@ -81,7 +81,7 @@ public class UserController {
 
         if (1 == 1) {
             try {
-                response.sendRedirect("../../html/success.html");
+                response.sendRedirect("../../html/admin.html");
             } catch (IOException e) {
                 e.printStackTrace();
             }
