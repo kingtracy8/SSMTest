@@ -33,7 +33,7 @@
             <li class="layui-nav-item"><a href="">系统管理</a></li>
             <!--<li class="layui-nav-item"><a href="">用户</a></li>-->
             <li class="layui-nav-item">
-                <a href="javascript:;">其它系统</a>
+                <a href="javascript:void(0)">其它系统</a>
                 <dl class="layui-nav-child">
                     <dd><a href="">邮件管理</a></dd>
                     <dd><a href="">消息管理</a></dd>
@@ -71,7 +71,7 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">解决方案</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;" data-url="error.html">列表一</a></dd>
                         <dd><a href="javascript:;">列表二</a></dd>
                     </dl>
                 </li>
@@ -198,7 +198,7 @@
                 console.log(res)
             }
         });
-        window.location.href="../../html/admin.html";
+     //   window.location.href="../../html/admin.html";
 
 
     });
