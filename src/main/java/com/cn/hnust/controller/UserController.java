@@ -1,5 +1,6 @@
 package com.cn.hnust.controller;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cn.hnust.domain.User;
 import com.cn.hnust.service.IUserService;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.List;
@@ -69,7 +71,6 @@ public class UserController {
             }
 
 
-
         }
         return flag;
 
@@ -95,5 +96,29 @@ public class UserController {
         return "sss";
     }
 
+    //检查form表单提交的用户名和密码是否正确
+    @RequestMapping(value = "/FormLogin", method = RequestMethod.POST)
+    public  String
+    CheckFormLogin(HttpServletRequest request, HttpServletResponse response) {
+
+        List<User> userList = userService.selectAll();
+        String Url = null;
+
+        for (int i = 0; i < userList.size(); i++) {
+
+            String userName = userList.get(i).getUserName();
+            String userPassword = userList.get(i).getPassword();
+
+
+            if (request.getParameter("userName").equals(userName) && request.getParameter("userPassword").equals(userPassword)) {
+                Url =  "admin";
+                request.getSession().setAttribute("userName",request.getParameter("userName"));
+            } else {
+               Url =  "error";
+                request.getSession().setAttribute("userName",request.getParameter("error"));
+            }
+        }
+        return Url;
+    }
 
 }
